@@ -1,0 +1,46 @@
+import random
+def game():
+    number=random.randint(1,100)
+    attment=0
+    difficulty=input("Choose difficulty: easy : medium : hard :").casefold()
+    if difficulty=="easy":
+        max_attment=10
+    elif difficulty=="medium":
+        max_attment=5
+    elif difficulty=="hard":
+        max_attment=3
+    else:
+        print("invalid difficulty")
+        exit()
+    while True:
+            try:
+                guess = int(input("Enter Number: "))
+                difference = abs(guess - number)
+                attment+=1
+                if guess>number:
+                    print("Go Low")
+                elif guess<number:
+                    print("Go High")
+                else:
+                    print("YOU WON")
+                    print("Number Of Attment: ",attment)
+                    break
+                if attment>=max_attment:
+                    print("YOU LOST")
+                    print("Number Of Attment: ",attment)
+                    break
+                if difference<=5:
+                    print("🔥 VERY CLOSE")
+                elif 6<=difference<=15:
+                    print(" 🙂 CLOSE")
+                else:
+                    print(" 🥶 FAR")
+                
+            except ValueError:
+                print("Please enter Valid a number!")
+game()
+while True:
+    again = input("Play again? yes/no: ").lower()
+    if again!="yes":
+        break
+    game()
