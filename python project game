@@ -18,6 +18,9 @@ def game():
     while True:
             try:
                 guess = int(input("Enter Number: "))
+                if not 1<=guess<=100:
+                    print("Please ENTER NUMBER FROM 1 TO 100")
+                    continue
                 difference = abs(guess - number)
                 attment+=1
                 if guess>number:
@@ -39,6 +42,8 @@ def game():
                     print(" 🙂 CLOSE")
                 else:
                     print(" 🥶 FAR")
+                print("Attempts left:", max_attment-attment)
+
                 
             except ValueError:
                 print("Please enter Valid a number!")
