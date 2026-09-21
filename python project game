@@ -1,6 +1,15 @@
 import random
 def game():
-    number=random.randint(1,100)
+    while True:
+        try:
+            n=int(input("Enter LAST number (0 TO _): "))
+            if n<=0:
+                print("Enter Number Atleast 1")
+                continue
+            break
+        except ValueError:
+            print("Enter Valid Number")
+    number=random.randint(0,n)
     attment=0
     while True:
         difficulty=input("Choose difficulty: easy : medium : hard :").casefold()
@@ -18,10 +27,11 @@ def game():
     while True:
             try:
                 guess = int(input("Enter Number: "))
-                if not 1<=guess<=100:
-                    print("Please ENTER NUMBER FROM 1 TO 100")
+                if not 0<=guess<=n:
+                    print(f"Please ENTER NUMBER From 0 to {n}")
                     continue
                 difference = abs(guess - number)
+                guess_diff=(difference/n)*100
                 attment+=1
                 if guess>number:
                     print("Go Low")
@@ -36,9 +46,9 @@ def game():
                     print("Number Of Attment: ",attment)
                     print("Number Is:",number)
                     break
-                if difference<=5:
+                if guess_diff<=5:
                     print("🔥 VERY CLOSE")
-                elif 6<=difference<=15:
+                elif guess_diff<=10:
                     print(" 🙂 CLOSE")
                 else:
                     print(" 🥶 FAR")
@@ -53,3 +63,5 @@ while True:
     if again!="yes":
         break
     game()
+
+
