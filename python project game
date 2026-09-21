@@ -2,16 +2,19 @@ import random
 def game():
     number=random.randint(1,100)
     attment=0
-    difficulty=input("Choose difficulty: easy : medium : hard :").casefold()
-    if difficulty=="easy":
-        max_attment=10
-    elif difficulty=="medium":
-        max_attment=5
-    elif difficulty=="hard":
-        max_attment=3
-    else:
-        print("invalid difficulty")
-        exit()
+    while True:
+        difficulty=input("Choose difficulty: easy : medium : hard :").casefold()
+        if difficulty=="easy":
+            max_attment=10
+            break
+        elif difficulty=="medium":
+            max_attment=5
+            break
+        elif difficulty=="hard":
+            max_attment=3
+            break
+        else:
+            print("invalid difficulty")
     while True:
             try:
                 guess = int(input("Enter Number: "))
@@ -28,6 +31,7 @@ def game():
                 if attment>=max_attment:
                     print("YOU LOST")
                     print("Number Of Attment: ",attment)
+                    print("Number Is:",number)
                     break
                 if difference<=5:
                     print("🔥 VERY CLOSE")
