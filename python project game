@@ -4,7 +4,7 @@ def game():
         try:
             n=int(input("Enter LAST number (0 TO _): "))
             if n<=0:
-                print("enter number atlest 1")
+                print("Enter Number Atleast 1")
                 continue
             break
         except ValueError:
@@ -31,6 +31,7 @@ def game():
                     print(f"Please ENTER NUMBER From 0 to {n}")
                     continue
                 difference = abs(guess - number)
+                guess_diff=(difference/n)*100
                 attment+=1
                 if guess>number:
                     print("Go Low")
@@ -45,9 +46,9 @@ def game():
                     print("Number Of Attment: ",attment)
                     print("Number Is:",number)
                     break
-                if difference<=5:
+                if guess_diff<=5:
                     print("🔥 VERY CLOSE")
-                elif 6<=difference<=15:
+                elif guess_diff<=10:
                     print(" 🙂 CLOSE")
                 else:
                     print(" 🥶 FAR")
