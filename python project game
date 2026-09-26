@@ -1,4 +1,5 @@
 import random
+
 def game():
     while True:
         try:
@@ -14,13 +15,13 @@ def game():
     while True:
         difficulty=input("Choose difficulty: easy : medium : hard :").casefold()
         if difficulty=="easy":
-            max_attment=10
+            max_attment=15
             break
         elif difficulty=="medium":
-            max_attment=5
+            max_attment=10
             break
         elif difficulty=="hard":
-            max_attment=3
+            max_attment=5
             break
         else:
             print("invalid difficulty")
@@ -40,7 +41,26 @@ def game():
                 else:
                     print("YOU WON")
                     print("Number Of Attment: ",attment)
+<<<<<<< Updated upstream
+=======
+                    score=abs(max_attment-attment)
+                    try:
+                        with open("high_score.txt") as f:
+                            content=f.read()
+                            if content!="":
+                                high_score=int(content)
+                            else:
+                                high_score=0
+                                
+                    except FileNotFoundError:
+                        high_score=0   # high_score=0
+                    if score>high_score:
+                        with open("high_score.txt","w") as f:
+                            f.write(str(score))
+                        print("New High Score: ",difficulty,score)
+>>>>>>> Stashed changes
                     break
+
                 if attment>=max_attment:
                     print("YOU LOST")
                     print("Number Of Attment: ",attment)
@@ -63,5 +83,6 @@ while True:
     if again!="yes":
         break
     game()
+
 
 
