@@ -40,6 +40,18 @@ def game():
                 else:
                     print("YOU WON")
                     print("Number Of Attment: ",attment)
+                    try:
+                        with open("hi.txt") as f:
+                            hiscore=f.read()
+                            if hiscore!="":
+                                hiscore=int(hiscore)
+                            else:
+                                hiscore=0
+                    except FileNotFoundError:
+                        hiscore=0
+                    if hiscore<abs(max_attment-attment):
+                        with open("hi.txt","w") as f:
+                            f.write(str(abs(max_attment-attment)))
                     break
                 if attment>=max_attment:
                     print("YOU LOST")
