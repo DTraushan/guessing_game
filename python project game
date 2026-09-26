@@ -41,8 +41,6 @@ def game():
                 else:
                     print("YOU WON")
                     print("Number Of Attment: ",attment)
-<<<<<<< Updated upstream
-=======
                     score=abs(max_attment-attment)
                     try:
                         with open("high_score.txt") as f:
@@ -58,7 +56,6 @@ def game():
                         with open("high_score.txt","w") as f:
                             f.write(str(score))
                         print("New High Score: ",difficulty,score)
->>>>>>> Stashed changes
                     break
 
                 if attment>=max_attment:
